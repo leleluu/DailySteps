@@ -1,21 +1,31 @@
-//
-//  ContentView.swift
-//  StepCounter
-//
-//  Created by lele luu on 20.09.23.
-//
-
 import SwiftUI
 
 struct ContentView: View {
+    
+    // MARK: - Properties
+        
+    private var healthKitManager = HealthHitManager()
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
             Text("Hello, world!")
         }
         .padding()
+        .onAppear {
+            getStepCount()
+        }
+    }
+    
+    // MARK: - Methods
+    
+    private func getStepCount() {
+        healthKitManager.requestAuthorization { (success, _) in
+            if success {
+                // get step count
+            } else {
+                // handle error
+            }
+        }
     }
 }
 
