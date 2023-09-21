@@ -7,6 +7,15 @@ struct ContentView: View {
     @State private var numberOfDaysSinceToday = 0
 
     private let healthKitManager = HealthKitManager()
+    
+    private var date: Date {
+        guard let unwrappedDate = Calendar.current.date(byAdding: .day, value: numberOfDaysSinceToday, to: Date.now) else {
+            numberOfDaysSinceToday = 0
+            return Date.now
+        }
+        return unwrappedDate
+    }
+    
     private let dummyGoal: Int = 10000
 
     var body: some View {
@@ -20,7 +29,7 @@ struct ContentView: View {
         }
         .padding()
         .onAppear {
-            getStepCount()
+            getStepCount(for: date)
         }
     }
 }
@@ -31,26 +40,26 @@ extension ContentView {
         HStack {
             Button {
                 numberOfDaysSinceToday -= 1
-                getStepCount()
+                getStepCount(for: date)
             } label: {
                 Image(systemName: "chevron.backward")
             }
             Text("Today")
             Button {
                 if numberOfDaysSinceToday < 0 {
-                    numberOfDaysSinceToday += 1 
+                    numberOfDaysSinceToday += 1
                 }
-                getStepCount()
+                getStepCount(for: date)
             } label: {
                 Image(systemName: "chevron.forward")
             }
         }
     }
     
-    private func getStepCount() {
+    private func getStepCount(for date: Date) {
         healthKitManager.requestAuthorization { (success, _) in
             if success {
-                healthKitManager.getStepCount(for: numberOfDaysSinceToday) { steps, error in
+                healthKitManager.getStepCount(for: date) { steps, error in
                     DispatchQueue.main.async {
                         stepCount = Int(steps)
                         progress = steps / Double(dummyGoal)
