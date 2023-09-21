@@ -1,9 +1,7 @@
 import HealthKit
 
-class HealthHitManager {
-    
-    // MARK: - Properties
-    
+class HealthKitManager {
+        
     private let store = HKHealthStore()
     
     // MARK: - Methods
@@ -18,16 +16,24 @@ class HealthHitManager {
         }
     }
     
-    func getStepCount(completion: @escaping (Double, Error?) -> Void) {
-        
+    func getStepCount(for numberOfDaysSinceToday: Int, completion: @escaping (Double, Error?) -> Void) {
+    
+        guard numberOfDaysSinceToday <= 0 else { return }
         guard let stepCountType = HKSampleType.quantityType(forIdentifier: .stepCount) else { return }
+    
+        guard let targetDate = Calendar.current.date(byAdding: .day, value: numberOfDaysSinceToday, to: Date.now) else { return }
+        
+        let startOfTargetDate = Calendar.current.startOfDay(for: targetDate)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        
+        let endOfTargetDate = Calendar.current.date(byAdding: components, to: startOfTargetDate)
 
-        // set predicate 
-          let now = Date()
-          let startOfDay = Calendar.current.startOfDay(for: now)
+
           let predicate = HKQuery.predicateForSamples(
-            withStart: startOfDay,
-            end: now,
+            withStart: startOfTargetDate,
+            end: endOfTargetDate,
             options: .strictStartDate
           )
           
@@ -40,5 +46,5 @@ class HealthHitManager {
               }
           }
           store.execute(query)
-      }
+    }
 }

@@ -16,7 +16,7 @@ struct ProgressView: View {
 
 extension ProgressView {
     
-    var baseRing: some View {
+    private var baseRing: some View {
         Circle()
             .stroke(
                 Color.gray.opacity(0.2),
@@ -24,7 +24,7 @@ extension ProgressView {
             )
     }
     
-    var progressRing: some View {
+    private var progressRing: some View {
         Circle()
             .trim(from: 0, to: progress)
             .stroke(
@@ -37,7 +37,7 @@ extension ProgressView {
             .rotationEffect(Angle(degrees: -90))
     }
     
-    var stepsLabel: some View {
+    private var stepsLabel: some View {
         VStack {
             Text(String(stepCount))
                 .font(.system(size: 60))
