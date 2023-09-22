@@ -35,6 +35,8 @@ extension ProgressView {
                 )
             )
             .rotationEffect(Angle(degrees: -90))
+            .animation(.easeOut, value: progress)
+
     }
     
     private var stepsLabel: some View {
