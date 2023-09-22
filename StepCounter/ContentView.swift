@@ -16,6 +16,18 @@ struct ContentView: View {
         return unwrappedDate
     }
     
+    private var dateString: String {
+        if numberOfDaysSinceToday == 0 {
+            return "Today"
+        } else if numberOfDaysSinceToday == -1 {
+            return "Yesterday"
+        } else {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full 
+            return formatter.string(from: date)
+        }
+    }
+    
     private let dummyGoal: Int = 10000
 
     var body: some View {
@@ -44,7 +56,8 @@ extension ContentView {
             } label: {
                 Image(systemName: "chevron.backward")
             }
-            Text("Today")
+            .padding(.trailing)
+            Text(dateString)
             Button {
                 if numberOfDaysSinceToday < 0 {
                     numberOfDaysSinceToday += 1
@@ -53,6 +66,7 @@ extension ContentView {
             } label: {
                 Image(systemName: "chevron.forward")
             }
+            .padding(.leading)
         }
     }
     
