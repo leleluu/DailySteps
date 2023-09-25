@@ -2,12 +2,11 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var stepCount: Int = 0
-    @State private var progress: Double = 0.0
-    @State private var numberOfDaysSinceToday = 0
-
-    private let healthKitManager = HealthKitManager()
+    @StateObject private var stepCountState = StepCountState()
     
+    @State private var numberOfDaysSinceToday = 0
+    @State private var isShowingAddGoalView = true
+        
     private var date: Date {
         guard let unwrappedDate = Calendar.current.date(byAdding: .day, value: numberOfDaysSinceToday, to: Date.now) else {
             numberOfDaysSinceToday = 0
@@ -28,26 +27,40 @@ struct ContentView: View {
         }
     }
     
-    private let dummyGoal: Int = 10000
-
     var body: some View {
-        VStack {
-            dayStepper
+        NavigationStack {
+            VStack {
+                dayStepper
+                .padding()
+                ProgressView(stepCountState: stepCountState)
+                .padding()
+                Text("Daily Step Goal: \(stepCountState.goal)")
+            }
             .padding()
-            ProgressView(
-                stepCount: $stepCount,
-                progress: $progress
-            )
-        }
-        .padding()
-        .onAppear {
-            getStepCount(for: date)
+            .onAppear {
+                getStepCount(for: date)
+            }
+            .sheet(isPresented: $isShowingAddGoalView) {
+                EditGoalView(stepCountState: stepCountState) 
+            }
+            .navigationTitle("Title")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingAddGoalView =  true
+                    } label: {
+                        Image(systemName: "trophy.fill")
+                            .resizable()
+                            .foregroundColor(.yellow)
+                    }
+                }
+            }
         }
     }
 }
 
 extension ContentView {
-        
+    
     private var dayStepper: some View {
         HStack {
             Button {
@@ -71,18 +84,7 @@ extension ContentView {
     }
     
     private func getStepCount(for date: Date) {
-        healthKitManager.requestAuthorization { (success, _) in
-            if success {
-                healthKitManager.getStepCount(for: date) { steps, error in
-                    DispatchQueue.main.async {
-                        stepCount = Int(steps)
-                        progress = steps / Double(dummyGoal)
-                    }
-                }
-            } else {
-                // handle error
-            }
-        }
+        stepCountState.updateStepCount(for: date)
     }
 }
 

@@ -2,9 +2,8 @@ import SwiftUI
 
 struct ProgressView: View {
         
-    @Binding var stepCount: Int
-    @Binding var progress: Double
-    
+    @ObservedObject var stepCountState: StepCountState
+
     var body: some View {
         ZStack {
             baseRing
@@ -26,7 +25,7 @@ extension ProgressView {
     
     private var progressRing: some View {
         Circle()
-            .trim(from: 0, to: progress)
+            .trim(from: 0, to: stepCountState.progress)
             .stroke(
                 Color.orange,
                 style: StrokeStyle(
@@ -35,13 +34,13 @@ extension ProgressView {
                 )
             )
             .rotationEffect(Angle(degrees: -90))
-            .animation(.easeOut, value: progress)
+            .animation(.easeOut, value: stepCountState.progress)
 
     }
     
     private var stepsLabel: some View {
         VStack {
-            Text(String(stepCount))
+            Text(String(stepCountState.stepCount))
                 .font(.system(size: 60))
                 .bold()
             Text("steps")
@@ -55,6 +54,6 @@ extension ProgressView {
 struct ProgressRingView_Previews: PreviewProvider {
     static var previews: some View {
         ProgressView(
-            stepCount: .constant(1000), progress: .constant(0.5))
+            stepCountState: StepCountState())
     }
 }

@@ -4,8 +4,6 @@ class HealthKitManager {
         
     private let store = HKHealthStore()
     
-    // MARK: - Methods
-    
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
 
         let readTypes: Set<HKObjectType> = [

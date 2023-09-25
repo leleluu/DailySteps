@@ -13,6 +13,8 @@
 		3872F76B2ABAFEAA00F3BB2E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3872F76A2ABAFEAA00F3BB2E /* Preview Assets.xcassets */; };
 		3872F7722ABAFF6600F3BB2E /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F7712ABAFF6600F3BB2E /* HealthKitManager.swift */; };
 		3872F7762ABB0BD700F3BB2E /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F7752ABB0BD700F3BB2E /* ProgressView.swift */; };
+		3872F77A2ABDD85C00F3BB2E /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */; };
+		3872F77E2AC1AF2B00F3BB2E /* StepCountState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		3872F7732ABB019D00F3BB2E /* StepCounter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepCounter.entitlements; sourceTree = "<group>"; };
 		3872F7742ABB02E000F3BB2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3872F7752ABB0BD700F3BB2E /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
+		3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +65,9 @@
 				3872F7732ABB019D00F3BB2E /* StepCounter.entitlements */,
 				3872F7632ABAFEA800F3BB2E /* StepCounterApp.swift */,
 				3872F7652ABAFEA800F3BB2E /* ContentView.swift */,
+				3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */,
 				3872F7752ABB0BD700F3BB2E /* ProgressView.swift */,
+				3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */,
 				3872F7712ABAFF6600F3BB2E /* HealthKitManager.swift */,
 				3872F7672ABAFEAA00F3BB2E /* Assets.xcassets */,
 				3872F7692ABAFEAA00F3BB2E /* Preview Content */,
@@ -150,6 +156,8 @@
 				3872F7662ABAFEA800F3BB2E /* ContentView.swift in Sources */,
 				3872F7762ABB0BD700F3BB2E /* ProgressView.swift in Sources */,
 				3872F7642ABAFEA800F3BB2E /* StepCounterApp.swift in Sources */,
+				3872F77A2ABDD85C00F3BB2E /* EditGoalView.swift in Sources */,
+				3872F77E2AC1AF2B00F3BB2E /* StepCountState.swift in Sources */,
 				3872F7722ABAFF6600F3BB2E /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
