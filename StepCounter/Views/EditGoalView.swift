@@ -9,6 +9,8 @@ struct EditGoalView: View {
     private var newGoal: Int {
         stepCountState.goal + offset
     }
+    
+    // MARK: - Body
 
     var body: some View {
         NavigationStack {
@@ -30,9 +32,8 @@ struct EditGoalView: View {
             }
         }
     }
-}
-
-extension EditGoalView {
+    
+    // MARK: - Supplementary Views
     
     private var dailyGoalHeader: some View {
         Text("Daily Step Goal")
@@ -67,6 +68,8 @@ extension EditGoalView {
             Text("STEPS / DAY")
         }
     }
+    
+    // MARK: - Methods
     
     private func save(_ newGoal: Int) {
         stepCountState.setGoal(to: newGoal)
