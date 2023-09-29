@@ -15,9 +15,11 @@
 		3872F7762ABB0BD700F3BB2E /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F7752ABB0BD700F3BB2E /* ProgressRing.swift */; };
 		3872F77A2ABDD85C00F3BB2E /* EditGoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */; };
 		3872F77E2AC1AF2B00F3BB2E /* StepCountState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */; };
-		38DB7F332AC58FD8004ACFCC /* StepCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DB7F322AC58FD8004ACFCC /* StepCount.swift */; };
+		38DB7F332AC58FD8004ACFCC /* StepCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DB7F322AC58FD8004ACFCC /* StepCountView.swift */; };
 		38DB7F372AC5962F004ACFCC /* ProgressBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DB7F362AC5962F004ACFCC /* ProgressBox.swift */; };
 		38DB7F3B2AC5B016004ACFCC /* DayStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DB7F3A2AC5B016004ACFCC /* DayStepper.swift */; };
+		38FCD5632ACD641D00A9C846 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCD5622ACD641D00A9C846 /* Extensions.swift */; };
+		38FCD5652ACD650F00A9C846 /* AnimatableNumberModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FCD5642ACD650F00A9C846 /* AnimatableNumberModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,9 +34,11 @@
 		3872F7752ABB0BD700F3BB2E /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
 		3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditGoalView.swift; sourceTree = "<group>"; };
 		3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountState.swift; sourceTree = "<group>"; };
-		38DB7F322AC58FD8004ACFCC /* StepCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCount.swift; sourceTree = "<group>"; };
+		38DB7F322AC58FD8004ACFCC /* StepCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepCountView.swift; sourceTree = "<group>"; };
 		38DB7F362AC5962F004ACFCC /* ProgressBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBox.swift; sourceTree = "<group>"; };
 		38DB7F3A2AC5B016004ACFCC /* DayStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayStepper.swift; sourceTree = "<group>"; };
+		38FCD5622ACD641D00A9C846 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		38FCD5642ACD650F00A9C846 /* AnimatableNumberModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableNumberModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +75,8 @@
 				3872F7732ABB019D00F3BB2E /* StepCounter.entitlements */,
 				3872F7632ABAFEA800F3BB2E /* StepCounterApp.swift */,
 				38DB7F312AC58F74004ACFCC /* Views */,
+				38FCD5622ACD641D00A9C846 /* Extensions.swift */,
+				38FCD5642ACD650F00A9C846 /* AnimatableNumberModifier.swift */,
 				3872F77D2AC1AF2B00F3BB2E /* StepCountState.swift */,
 				3872F7712ABAFF6600F3BB2E /* HealthKitManager.swift */,
 				3872F7672ABAFEAA00F3BB2E /* Assets.xcassets */,
@@ -94,7 +100,7 @@
 				3872F7792ABDD85C00F3BB2E /* EditGoalView.swift */,
 				38DB7F3A2AC5B016004ACFCC /* DayStepper.swift */,
 				3872F7752ABB0BD700F3BB2E /* ProgressRing.swift */,
-				38DB7F322AC58FD8004ACFCC /* StepCount.swift */,
+				38DB7F322AC58FD8004ACFCC /* StepCountView.swift */,
 				38DB7F362AC5962F004ACFCC /* ProgressBox.swift */,
 			);
 			path = Views;
@@ -174,8 +180,10 @@
 				3872F7762ABB0BD700F3BB2E /* ProgressRing.swift in Sources */,
 				38DB7F372AC5962F004ACFCC /* ProgressBox.swift in Sources */,
 				3872F7642ABAFEA800F3BB2E /* StepCounterApp.swift in Sources */,
-				38DB7F332AC58FD8004ACFCC /* StepCount.swift in Sources */,
+				38DB7F332AC58FD8004ACFCC /* StepCountView.swift in Sources */,
+				38FCD5632ACD641D00A9C846 /* Extensions.swift in Sources */,
 				3872F77A2ABDD85C00F3BB2E /* EditGoalView.swift in Sources */,
+				38FCD5652ACD650F00A9C846 /* AnimatableNumberModifier.swift in Sources */,
 				3872F77E2AC1AF2B00F3BB2E /* StepCountState.swift in Sources */,
 				3872F7722ABAFF6600F3BB2E /* HealthKitManager.swift in Sources */,
 				38DB7F3B2AC5B016004ACFCC /* DayStepper.swift in Sources */,

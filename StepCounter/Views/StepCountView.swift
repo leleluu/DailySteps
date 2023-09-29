@@ -1,16 +1,17 @@
 import SwiftUI
 
-struct StepCount: View {
-        
+struct StepCountView: View {
+
     let stepCount: Int
     
     // MARK: - Body
     
     var body: some View {
         VStack {
-            Text(String(stepCount))
-                .foregroundColor(.orange)
-                .font(.system(size: 64, weight: .bold, design: .rounded))
+            Color.clear
+                .frame(height: 60)
+                .animatingOverlay(for: stepCount)
+                .animation(.easeInOut(duration: 1), value: stepCount)
             Text("STEPS")
                 .font(.system(size: 26, design: .rounded))
         }
@@ -19,6 +20,9 @@ struct StepCount: View {
 
 struct StepCountLabel_Previews: PreviewProvider {
     static var previews: some View {
-        StepCount(stepCount: 300)
+        StepCountView(stepCount: 300)
     }
 }
+
+
+

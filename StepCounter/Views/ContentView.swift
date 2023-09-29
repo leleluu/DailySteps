@@ -27,8 +27,8 @@ struct ContentView: View {
                         ProgressRing(progress: stepCountState.progress)
                             .frame(height: geometry.size.height * 0.3)
                         
-                        StepCount(stepCount: stepCountState.stepCount
-                        )
+                        StepCountView(stepCount: stepCountState.stepCount)
+                            .frame(height: geometry.size.height * 0.2)
                         dailyGoalSection
                         ProgressBox(stepCount: stepCountState.stepCount, goal: stepCountState.goal)
                             .frame(height: geometry.size.height * 0.1)
