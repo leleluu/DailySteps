@@ -58,15 +58,13 @@ struct DayStepper: View {
     
     private var incrementButton: some View {
         Button {
-            if numberOfDaysSinceToday < 0 {
-                numberOfDaysSinceToday += 1
-            }
+            numberOfDaysSinceToday += 1
         } label: {
             Image(systemName: "chevron.forward")
                 .font(.system(size: 42))
                 .tint(.darkGreen)
-
         }
+        .disabled(numberOfDaysSinceToday == 0)
     }
 }
 
