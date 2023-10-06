@@ -24,7 +24,12 @@ class StepCountState: ObservableObject {
                     }
                 }
             } else {
-                // handle error
+                /*
+                Usually the error would be passed back to the view so that this
+                information can be presented to the user. However, I decided against
+                implementing any kind of error handling in this project as I wanted to focus
+                on basic SwiftUI and data flow.
+                */
             }
         }
 
