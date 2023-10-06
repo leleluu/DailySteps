@@ -13,7 +13,7 @@ struct AnimatableNumberModifier: AnimatableModifier {
         content
             .overlay(
                 Text("\(Int(animatableData))")
-                    .foregroundColor(.orange)
+                    .foregroundColor(.paleOrange)
                     .font(.system(size: 64, weight: .bold, design: .rounded))
                     .monospacedDigit()
             )

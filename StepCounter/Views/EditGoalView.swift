@@ -14,20 +14,26 @@ struct EditGoalView: View {
 
     var body: some View {
         NavigationStack {
-            VStack {
-                dailyGoalHeader
-                goalStepper
+            ZStack {
+                Color.paleYellow
+                    .ignoresSafeArea(.all)
+                VStack {
+                    dailyGoalHeader
+                    goalStepper
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("cancel") {
                         dismiss()
                     }
+                    .foregroundColor(.darkGreen)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("save") {
                         save(newGoal)
                     }
+                    .foregroundColor(.darkGreen)
                 }
             }
         }
@@ -38,6 +44,7 @@ struct EditGoalView: View {
     private var dailyGoalHeader: some View {
         Text("Daily Step Goal")
             .font(.system(size: 42))
+            .foregroundColor(.darkGreen)
             .bold()
             .padding()
     }
@@ -49,23 +56,26 @@ struct EditGoalView: View {
                     offset -= 1000
                 } label: {
                     Image(systemName: "minus.circle")
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.paleOrange)
                 }
-                .padding(.trailing)
-                
+                .padding(.leading)
+                Spacer()  
                 Text(String(newGoal))
+                    .foregroundColor(.darkGreen)
                     .bold()
+                Spacer()
                 Button {
                     offset += 1000
                 } label: {
                     Image(systemName: "plus.circle")
-                        .foregroundColor(.yellow)
+                        .foregroundColor(.paleOrange)
                     
                 }
-                .padding(.leading)
+                .padding(.trailing)
             }
             .font(.system(size: 60))
             Text("STEPS / DAY")
+                .foregroundColor(.darkGreen) 
         }
     }
     

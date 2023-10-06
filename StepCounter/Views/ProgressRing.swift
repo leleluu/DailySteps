@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ProgressRing: View {
          
-    let progress: Double 
+    let progress: Double
     
     // MARK: - Body
     
@@ -12,10 +12,11 @@ struct ProgressRing: View {
                 ZStack {
                     baseRing
                     progressRing
-                    Image(systemName: "figure.walk")
+                    Image(systemName: progress >= 1 ? "trophy.fill": "figure.run")
                         .resizable()
                         .scaledToFit()
                         .frame(width: geometry.size.width / 3, height: geometry.size.width / 3)
+                        .foregroundColor(.darkGreen)
                 }
                 .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             }
@@ -36,14 +37,14 @@ struct ProgressRing: View {
         Circle()
             .trim(from: 0, to: progress)
             .stroke(
-                Color.orange,
+                Color.paleOrange,
                 style: StrokeStyle(
                     lineWidth: 40, 
                     lineCap: .round
                 )
             )
             .rotationEffect(Angle(degrees: -90))
-            .animation(.easeOut, value: progress)
+            .animation(.easeOut(duration: 1), value: progress)
     }
     
 }

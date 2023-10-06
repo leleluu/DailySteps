@@ -13,7 +13,9 @@ struct StepCountView: View {
                 .animatingOverlay(for: stepCount)
                 .animation(.easeInOut(duration: 1), value: stepCount)
             Text("STEPS")
-                .font(.system(size: 26, design: .rounded))
+                .font(.system(size: 26, weight: .regular, design: .rounded))
+                .foregroundColor(.darkGreen)
+
         }
     }
 }

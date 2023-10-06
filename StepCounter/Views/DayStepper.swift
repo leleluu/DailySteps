@@ -46,12 +46,14 @@ struct DayStepper: View {
         } label: {
             Image(systemName: "chevron.backward")
                 .font(.system(size: 42))
+                .foregroundColor(.darkGreen)
+
         }
     }
     private var dateLabel: some View {
         Text(dateString)
-            .font(.system(size: 36, design: .rounded))
-            .fontWeight(.light)
+            .font(.system(size: 34, weight: .medium, design: .rounded)) 
+            .foregroundColor(.darkGreen)
     }
     
     private var incrementButton: some View {
@@ -62,6 +64,8 @@ struct DayStepper: View {
         } label: {
             Image(systemName: "chevron.forward")
                 .font(.system(size: 42))
+                .foregroundColor(.darkGreen)
+
         }
     }
 }

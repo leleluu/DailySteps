@@ -17,35 +17,39 @@ struct ContentView: View {
     // MARK: - Body
     
     var body: some View {
-        NavigationStack {
-            GeometryReader { geometry in
-                ZStack {
-                    Color.clear
-                        .ignoresSafeArea(.all)
-                    VStack {
-                        DayStepper(numberOfDaysSinceToday: $numberOfDaysSinceToday)
-                        ProgressRing(progress: stepCountState.progress)
-                            .frame(height: geometry.size.height * 0.3)
-                        
-                        StepCountView(stepCount: stepCountState.stepCount)
-                            .frame(height: geometry.size.height * 0.2)
-                        dailyGoalSection
-                        ProgressBox(stepCount: stepCountState.stepCount, goal: stepCountState.goal)
-                            .frame(height: geometry.size.height * 0.1)
-                            .onChange(of: numberOfDaysSinceToday) { _ in
-                                  getStepCount(for: date)
-                            }
+        GeometryReader { geometry in
+            VStack {
+                DayStepper(numberOfDaysSinceToday: $numberOfDaysSinceToday)
+                    .padding(EdgeInsets(
+                        top: 16,
+                        leading: 8,
+                        bottom: 16,
+                        trailing: 8
+                    ))
+                Spacer()
+                ProgressRing(progress: stepCountState.progress)
+                    .frame(height: geometry.size.height * 0.35)
+                StepCountView(stepCount: stepCountState.stepCount)
+                    .frame(height: geometry.size.height * 0.2)
+                Spacer()
+
+                dailyGoalSection
+                ProgressInfoBox(stepCount: stepCountState.stepCount, goal: stepCountState.goal)
+                    .frame(height: geometry.size.height * 0.15)
+                    .onChange(of: numberOfDaysSinceToday) { _ in
+                          getStepCount(for: date)
                     }
-                    .onAppear {
-                        getStepCount(for: date)
-                    }
-                    .sheet(isPresented: $isShowingAddGoalView) {
-                        EditGoalView(stepCountState: stepCountState)
-                    }
-                }
-                .padding()
+                    .padding(.bottom, 16)
+            }
+            .onAppear {
+                getStepCount(for: date)
+            }
+            .sheet(isPresented: $isShowingAddGoalView) {
+                EditGoalView(stepCountState: stepCountState)
             }
         }
+        .padding()
+        .background(Color.paleYellow)
     }
     
     // MARK: - Supplementary Views
@@ -53,12 +57,13 @@ struct ContentView: View {
     private var dailyGoalSection: some View {
         HStack {
             Text("Daily Goal: \(stepCountState.goal)")
-                .fontDesign(.monospaced)
+                .font(.system(size: 22, weight: .semibold, design: .monospaced)) 
+                .foregroundColor(.lightPink)
             Button {
                 isShowingAddGoalView =  true
             } label: {
                 Image(systemName: "pencil")
-                    .foregroundColor(.yellow)
+                    .foregroundColor(.lightPink)
             }
         }
     }
