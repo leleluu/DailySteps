@@ -46,7 +46,7 @@ struct DayStepper: View {
         } label: {
             Image(systemName: "chevron.backward")
                 .font(.system(size: 42))
-                .foregroundColor(.darkGreen)
+                .tint(.darkGreen)
 
         }
     }
@@ -64,7 +64,7 @@ struct DayStepper: View {
         } label: {
             Image(systemName: "chevron.forward")
                 .font(.system(size: 42))
-                .foregroundColor(.darkGreen)
+                .tint(.darkGreen)
 
         }
     }

@@ -63,7 +63,7 @@ struct ContentView: View {
                 isShowingAddGoalView =  true
             } label: {
                 Image(systemName: "pencil")
-                    .foregroundColor(.lightPink)
+                    .tint(.lightPink)
             }
         }
     }

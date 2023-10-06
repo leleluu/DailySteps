@@ -9,7 +9,7 @@ struct EditGoalView: View {
     private var newGoal: Int {
         stepCountState.goal + offset
     }
-    
+
     // MARK: - Body
 
     var body: some View {
@@ -27,13 +27,14 @@ struct EditGoalView: View {
                     Button("cancel") {
                         dismiss()
                     }
-                    .foregroundColor(.darkGreen)
+                    .tint(.darkGreen)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("save") {
                         save(newGoal)
                     }
-                    .foregroundColor(.darkGreen)
+                    .tint(.darkGreen)
+                    .disabled(newGoal == 0)
                 }
             }
         }
@@ -56,8 +57,9 @@ struct EditGoalView: View {
                     offset -= 1000
                 } label: {
                     Image(systemName: "minus.circle")
-                        .foregroundColor(.paleOrange)
+                        .tint(.paleOrange)
                 }
+                .disabled(newGoal == 0)
                 .padding(.leading)
                 Spacer()  
                 Text(String(newGoal))
@@ -68,7 +70,7 @@ struct EditGoalView: View {
                     offset += 1000
                 } label: {
                     Image(systemName: "plus.circle")
-                        .foregroundColor(.paleOrange)
+                        .tint(.paleOrange)
                     
                 }
                 .padding(.trailing)
