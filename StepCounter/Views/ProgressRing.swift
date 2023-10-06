@@ -3,6 +3,7 @@ import SwiftUI
 struct ProgressRing: View {
          
     let progress: Double
+    let progressCircleLineWidth: CGFloat = 40
     
     // MARK: - Body
     
@@ -18,6 +19,8 @@ struct ProgressRing: View {
                         .frame(width: geometry.size.width / 3, height: geometry.size.width / 3)
                         .foregroundColor(.darkGreen)
                 }
+                .padding(progressCircleLineWidth / 2)
+
                 .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
             }
         }
@@ -29,7 +32,7 @@ struct ProgressRing: View {
         Circle()
             .stroke(
                 Color.gray.opacity(0.2),
-                lineWidth: 36
+                lineWidth: progressCircleLineWidth - 3
             )
     }
     
@@ -39,7 +42,7 @@ struct ProgressRing: View {
             .stroke(
                 Color.paleOrange,
                 style: StrokeStyle(
-                    lineWidth: 40, 
+                    lineWidth: progressCircleLineWidth,
                     lineCap: .round
                 )
             )

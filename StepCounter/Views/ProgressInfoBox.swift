@@ -23,7 +23,6 @@ struct ProgressInfoBox: View {
                 successMessage
             } else {
                 percentageAndRemainingSteps
-
             }
         }
     }
@@ -47,6 +46,7 @@ struct ProgressInfoBox: View {
 
         }
         .fontDesign(.monospaced)
+        .padding()
     }
     
     private var successMessage: some View {
@@ -56,7 +56,6 @@ struct ProgressInfoBox: View {
             .frame(alignment: .center)
             .foregroundColor(.darkGreen)
             .padding()
-        
     }
 }
 

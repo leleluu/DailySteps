@@ -28,7 +28,7 @@ struct ContentView: View {
                     ))
                 Spacer()
                 ProgressRing(progress: stepCountState.progress)
-                    .frame(height: geometry.size.height * 0.35)
+                    .frame(height: geometry.size.height * 0.4)
                 StepCountView(stepCount: stepCountState.stepCount)
                     .frame(height: geometry.size.height * 0.2)
                 Spacer()
