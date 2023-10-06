@@ -1,12 +1,5 @@
 import SwiftUI
 
-extension View {
-    
-    func animatingOverlay(for number: Int) -> some View {
-        modifier(AnimatableNumberModifier(number: number))
-    }
-}
-
 extension Color {
     
     static let paleYellow = Color(red: 252 / 255, green: 246 / 255, blue: 226 / 255)
