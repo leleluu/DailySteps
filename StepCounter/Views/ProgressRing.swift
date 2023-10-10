@@ -9,20 +9,23 @@ struct ProgressRing: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack (alignment: .center) {
-                ZStack {
-                    baseRing
-                    progressRing
-                    Image(systemName: progress >= 1 ? "trophy.fill": "figure.run")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: geometry.size.width / 3, height: geometry.size.width / 3)
-                        .foregroundColor(.darkGreen)
-                }
-                .padding(progressCircleLineWidth / 2)
-
-                .position(x: geometry.size.width / 2, y: geometry.size.height / 2)
+            ZStack {
+                baseRing
+                progressRing
+                Image(systemName: progress >= 1 ? "trophy.fill": "figure.run")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(
+                        width: geometry.size.width / 3,
+                        height: geometry.size.width / 3
+                    )
+                    .foregroundColor(.darkGreen)
             }
+            .padding(progressCircleLineWidth / 2)
+            .position(
+                x: geometry.size.width / 2,
+                y: geometry.size.height / 2
+            )
         }
     }
     
