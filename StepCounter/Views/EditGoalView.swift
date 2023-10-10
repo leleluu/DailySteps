@@ -15,7 +15,7 @@ struct EditGoalView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.paleYellow
+                Color.lightYellow
                     .ignoresSafeArea(.all)
                 VStack {
                     dailyGoalHeader
@@ -57,7 +57,7 @@ struct EditGoalView: View {
                     offset -= 1000
                 } label: {
                     Image(systemName: "minus.circle")
-                        .tint(.paleOrange)
+                        .tint(.lightOrange)
                 }
                 .disabled(newGoal == 0)
                 .padding(.leading)
@@ -70,7 +70,7 @@ struct EditGoalView: View {
                     offset += 1000
                 } label: {
                     Image(systemName: "plus.circle")
-                        .tint(.paleOrange)
+                        .tint(.lightOrange)
                     
                 }
                 .padding(.trailing)

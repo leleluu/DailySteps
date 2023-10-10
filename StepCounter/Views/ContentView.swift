@@ -49,7 +49,7 @@ struct ContentView: View {
             }
         }
         .padding()
-        .background(Color.paleYellow)
+        .background(Color.lightYellow)
     }
     
     // MARK: - Supplementary Views

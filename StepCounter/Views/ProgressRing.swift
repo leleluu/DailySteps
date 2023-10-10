@@ -43,7 +43,7 @@ struct ProgressRing: View {
         Circle()
             .trim(from: 0, to: progress)
             .stroke(
-                Color.paleOrange,
+                Color.lightOrange,
                 style: StrokeStyle(
                     lineWidth: progressCircleLineWidth,
                     lineCap: .round
